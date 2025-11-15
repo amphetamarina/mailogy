@@ -30,7 +30,7 @@ To download your Gmail emails in `.mbox` format, follow these steps:
 1. Clone this repo using the following command:
 
     ```
-    git clone http://github.com/granawkins/mailogy
+    git clone http://github.com/amphetamarina/mailogy
     ```
 
 2. Install the required dependencies with uv:
