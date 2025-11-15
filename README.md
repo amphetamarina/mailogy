@@ -24,9 +24,6 @@ To download your Gmail emails in `.mbox` format, follow these steps:
 10. Once the export is ready, Google will email you a link to download your `.mbox` file. Follow the instructions in the email to download the file to your computer.
 
 ## Usage Guide
-
-> **Note:** You will need an OpenAI API key to run this program. You can set it as an environmental variable, otherwise your will be prompted to enter your first time.
-
 1. Clone this repo using the following command:
 
     ```

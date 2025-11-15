@@ -20,7 +20,7 @@ from mailogy.utils import (
 from mailogy.prompts import script_prompt, script_examples, script_tips
 
 class LLMClient:
-    def __init__(self, log_path, model="gpt-4"):
+    def __init__(self, log_path, model="gpt-oss-120b"):
         self.log_path = log_path
         self.model = get_llm_model() or model
         self.conversation = []
@@ -31,16 +31,19 @@ class LLMClient:
     def _setup_client(self):
         env_path = mailogy_dir / ".env"
         load_dotenv(env_path)
-        self.base_url = get_llm_base_url() or 'https://api.openai.com/v1'
+        self.base_url = get_llm_base_url()
         set_base_url(self.base_url)
-        self.model = get_llm_model() or 'gpt-4'
+        self.model = get_llm_model() or 'gpt-oss-120b'
         set_llm_model(self.model)
-        self.api_key = get_llm_api_key() or os.getenv("OPENAI_API_KEY")
+        self.api_key = get_llm_api_key()
         while self.api_key is None:
             print(f"API Key {self.api_key} not found. ")
             self.api_key = input("Enter API Key (e.g. OpenAI): ").strip()
             set_llm_api_key(self.api_key)
-
+        while self.base_url is None:
+            print(f"Base URL {self.base_url} not found. ")
+            self.base_url = input("Enter Base URL (e.g.: https://api.openai.com/v1): ").strip()
+            set_base_url(self.base_url)
     def get_response(
         self, model: str = None, 
         messages: list[dict[str, str]] = None, 
@@ -57,7 +60,7 @@ class LLMClient:
 
         try:
             selected_model = model or self.model
-            base_url = self.base_url or "https://api.openai.com/v1"
+            base_url = self.base_url
             response = completion(
                 base_url=base_url,
                 api_key=self.api_key,
