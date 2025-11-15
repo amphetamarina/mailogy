@@ -36,7 +36,7 @@ To download your Gmail emails in `.mbox` format, follow these steps:
 2. Install the required dependencies with uv:
 
     ```
-    uv install
+    uv sync
     ```
 
 3. To process your `.mbox` file, run the program using the following command:
