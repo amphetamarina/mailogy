@@ -33,16 +33,16 @@ To download your Gmail emails in `.mbox` format, follow these steps:
     git clone http://github.com/granawkins/mailogy
     ```
 
-2. Install the required dependencies with pip:
+2. Install the required dependencies with uv:
 
     ```
-    pip install -r requirements.txt
+    uv install
     ```
 
 3. To process your `.mbox` file, run the program using the following command:
 
    ```
-   python -m mailogy path_to_your_mbox_file.mbox
+   uv -m mailogy path_to_your_mbox_file.mbox
    ```
 
    Replace `path_to_your_mbox_file.mbox` with the actual path to your `.mbox` file.
@@ -52,13 +52,13 @@ To download your Gmail emails in `.mbox` format, follow these steps:
 5. After your `.mbox` file has been processed, can load your complete library again (without delay) by running:
 
     ```
-    python -m mailogy
+    uv -m mailogy
     ```
 
     If you do include a path, you will be guided through the same procedure as #3. 
 
 ## Running OpenAI-compatible models
-1. Edit ~/.mailbox/config.yaml file:
+1. Edit ~/.mailogy/config.yaml file:
     ```
     llm_base_url: https://api.mistral.ai/v1
     llm_api_key: mistral-api-key
@@ -67,7 +67,7 @@ To download your Gmail emails in `.mbox` format, follow these steps:
 
 ## Running local models using [ollama](https://ollama.ai/)
 1. Run `ollama serve` on our terminal. 
-2. Edit ~/.mailbox/config.yaml file:
+2. Edit ~/.mailogy/config.yaml file:
     ```
     llm_base_url: http://127.0.0.1:11434
     llm_model: ollama_chat/mistral

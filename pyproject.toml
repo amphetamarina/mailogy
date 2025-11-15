@@ -1,0 +1,12 @@
+[project]
+name = "mailogy"
+version = "1.0.0"
+description = "Interact with your email records using natural language"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "litellm>=1.79.3",
+    "openai>=2.8.0",
+    "python-dateutil>=2.9.0.post0",
+]
